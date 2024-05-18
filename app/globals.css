@@ -101,7 +101,7 @@
   transform: translateY(-50%);
   width: 100px;
   height: 1px;
-  background: linear-gradient(90deg, #8efe86, transparent);
+  background: linear-gradient(90deg, hsl(var(--primary)), transparent);
 }
 @keyframes animate {
   0% {
