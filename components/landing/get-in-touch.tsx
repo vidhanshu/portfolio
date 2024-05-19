@@ -4,6 +4,7 @@ import Section from "../section";
 import { cn } from "@/lib/utils";
 import { PPObjectSansRegular } from "@/lib/fonts";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const GetInTouch = () => {
   return (
@@ -30,13 +31,15 @@ const GetInTouch = () => {
               👋
             </button>
           </div>
-          <div className="space-y-6">
-            <h1 className={cn("text-5xl", PPObjectSansRegular.className)}>
+          <div>
+            <h1 className={cn("text-5xl mb-6", PPObjectSansRegular.className)}>
               Let&apos;s work together on your next project
             </h1>
-            <Button size="primary" variant="primary">
-              let&apos;s-get-in-touch
-            </Button>
+            <Link href="/contact">
+              <Button size="primary" variant="primary">
+                let&apos;s-get-in-touch
+              </Button>
+            </Link>
           </div>
         </div>
       </WindowScreen>

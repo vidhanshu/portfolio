@@ -17,7 +17,7 @@ const Projects = () => {
         }
         subheading="Embark on a Tech Odyssey: From Code Enthusiast to Seasoned Developer, Unraveling My Professional Evolution and Technical Expertise."
       />
-      <PProjects />
+      <PProjects shootingStar showButton={false} />
       <GetInTouch />
     </PageLayout>
   );

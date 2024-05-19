@@ -61,15 +61,27 @@ export const NAV_ITEMS = [
 
 export const PROJECTS = [
   {
-    name: "Stunning Portfolio",
+    name: "Portfolio",
     tags: ["react", "next", "gsap", "tailwind"],
     image: "/projects/portfolio.png",
+    year: "2024",
+  },
+  {
+    name: "Eateaser",
+    tags: ["redis", "aws", "mongo-db", "vite", "tailwind"],
+    image: "/projects/eateaser.png",
     year: "2024",
   },
   {
     name: "Trello Clone",
     tags: ["next", "postgreSQL", "next-auth", "tailwind"],
     image: "/projects/vello.png",
+    year: "2024",
+  },
+  {
+    name: "RT Tic Tac Toe",
+    tags: ["next", "node", "socket-io", "tailwind"],
+    image: "/projects/ttt.png",
     year: "2024",
   },
 ];

@@ -110,7 +110,7 @@ const AboutMe = () => {
           </div>
         </WindowScreen>
         <WindowScreen
-          containerProps={{ id: "gsap-draggable-1", className: "absolute bottom-[30%] left-16" }}
+          containerProps={{ id: "gsap-draggable-1", className: "absolute bottom-[40%] left-16" }}
           title="where-i-work"
         >
           <div className="pl-4">

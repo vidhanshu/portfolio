@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
 ///---------------------------------------------------------------------------------------------------------
 
@@ -20,7 +21,7 @@ const ProjectCard = ({ idx, tags, name, image, year }: ProjectCardProps) => {
   return (
     <div className="group/card border border-border rounded-sm px-8 py-20 bg-background/40 backdrop-blur-sm">
       <div className="flex relative justify-between items-center gap-x-4">
-        <div className="flex gap-x-4 items-start">
+        <div className="flex gap-x-4 items-start w-full max-w-[425px]">
           <p
             className={cn(
               PPNMedium.className,
@@ -32,18 +33,51 @@ const ProjectCard = ({ idx, tags, name, image, year }: ProjectCardProps) => {
           <div className="space-y-6">
             <h1 className="text-5xl max-w-md">{name}</h1>
             <div>
-              {tags.map((tag, idx) => (
-                <span
-                  className={cn(
-                    "border border-border mr-2 rounded-full py-2 px-4 bg-background/40",
-                    PPNMedium.className,
-                    "text-sm text-neutral-500"
-                  )}
-                  key={idx}
-                >
-                  {tag}
-                </span>
-              ))}
+              {tags.length > 3 ? (
+                <>
+                  {tags.slice(0, 3).map((tag, idx) => (
+                    <span
+                      className={cn(
+                        "border border-border mr-2 rounded-full py-2 px-4 bg-background/40",
+                        PPNMedium.className,
+                        "text-sm text-neutral-500"
+                      )}
+                      key={idx}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                <TooltipProvider delayDuration={0}>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <span
+                          className={cn(
+                            "border border-border mr-2 rounded-full py-2 px-4 bg-background/40",
+                            PPNMedium.className,
+                            "text-sm text-neutral-500"
+                          )}
+                        >
+                          +{tags.length - 3}
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent>{tags.slice(3).join(", ")}</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </>
+              ) : (
+                tags.map((tag, idx) => (
+                  <span
+                    className={cn(
+                      "border border-border mr-2 rounded-full py-2 px-4 bg-background/40",
+                      PPNMedium.className,
+                      "text-sm text-neutral-500"
+                    )}
+                    key={idx}
+                  >
+                    {tag}
+                  </span>
+                ))
+              )}
             </div>
           </div>
         </div>
