@@ -10,40 +10,32 @@ import { useEffect } from "react";
 import WindowScreen from "../common/window-screen";
 import Section from "../section";
 import { Button } from "../ui/button";
-import InertiaPlugin from "gsap-trial";
 
 ///-------------------------------------------------------------------------------------------------------------
 
-gsap.registerPlugin(Draggable, InertiaPlugin);
+gsap.registerPlugin(Draggable);
 
 ///-------------------------------------------------------------------------------------------------------------
 
-const FullstackDeveloper = () => {
+const AboutMe = () => {
   useEffect(() => {
-    Draggable.create("#gsap-draggable-1", {
-      bounds: ".gsap-container-bound",
-      inertia: true,
-    });
-    Draggable.create("#gsap-draggable-2", {
-      bounds: ".gsap-container-bound",
-      inertia: true,
-    });
-    Draggable.create("#gsap-draggable-3", {
-      bounds: ".gsap-container-bound",
-      inertia: true,
-    });
-    Draggable.create("#gsap-draggable-4", {
-      bounds: ".gsap-container-bound",
-      inertia: true,
-    });
-    Draggable.create("#gsap-draggable-5", {
-      bounds: ".gsap-container-bound",
-      inertia: true,
+    [
+      "#gsap-draggable-1",
+      "#gsap-draggable-2",
+      "#gsap-draggable-3",
+      "#gsap-draggable-4",
+      "#gsap-draggable-5",
+    ].forEach((id) => {
+      Draggable.create(id, {
+        bounds: ".gsap-container-bound",
+        inertia: true,
+      });
     });
   }, []);
 
   return (
     <Section
+      id="fullstack-section"
       sectionTitle={
         <>
           Your <span className="text-primary">Fullstack Developer </span>
@@ -184,4 +176,4 @@ const FullstackDeveloper = () => {
   );
 };
 
-export default FullstackDeveloper;
+export default AboutMe;

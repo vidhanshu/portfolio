@@ -74,7 +74,7 @@ const HeroSection = ({
             <p
               className={cn(
                 NMachineRegular.className,
-                "gsap-title-text scale-90 text-base text-neutral-500"
+                "gsap-title-text scale-90 text-base text-neutral-500 uppercase"
               )}
             >
               {pageTitle}

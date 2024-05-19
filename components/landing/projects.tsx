@@ -6,6 +6,7 @@ import ProjectCard from "./project-card";
 const Projects = () => {
   return (
     <Section
+      id="projects-section"
       sectionTitle={
         <>
           Projects <span className="text-primary">Highlights </span>
@@ -18,7 +19,9 @@ const Projects = () => {
         ))}
       </div>
       <div className="flex justify-center mt-5">
-        <Button variant="primary" size="primary">all-projects</Button>
+        <Button variant="primary" size="primary">
+          all-projects
+        </Button>
       </div>
     </Section>
   );

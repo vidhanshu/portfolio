@@ -1,5 +1,6 @@
 import HeroSection from "@/components/common/hero";
-import FullstackDeveloper from "@/components/landing/fullstack-develop";
+import AboutMe from "@/components/landing/about-me";
+import GetInTouch from "@/components/landing/get-in-touch";
 import Projects from "@/components/landing/projects";
 import PageLayout from "@/components/page-layout";
 
@@ -16,7 +17,8 @@ const Landing = () => {
         }
       />
       <Projects />
-      <FullstackDeveloper />
+      <AboutMe />
+      <GetInTouch />
     </PageLayout>
   );
 };

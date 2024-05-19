@@ -8,6 +8,7 @@ import React, { PropsWithChildren } from "react";
 interface WindowScreenProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   containerProps?: React.HTMLAttributes<HTMLDivElement>;
+  shootingStar?: boolean;
 }
 
 ///-------------------------------------------------------------------------------------------
@@ -17,17 +18,27 @@ const WindowScreen = ({
   children,
   className,
   containerProps: { className: containerClassName, ...rest } = {},
+  shootingStar = false,
   ...props
 }: WindowScreenProps & PropsWithChildren) => {
   return (
     <div
       className={cn(
-        "w-fit bg-background/70 h-fit backdrop-blur-sm rounded-sm z-20",
+        "w-fit bg-background/50 h-fit backdrop-blur-sm rounded-sm z-20 relative",
         PPNMedium.className,
         containerClassName
       )}
       {...rest}
     >
+      {shootingStar && (
+        <>
+          {/* ं shooting star before */}
+          <div className="w-[1px] inset-x-0 mx-auto -top-32 h-32 bg-gradient-to-t from-primary/70 to-primary/5 absolute" />
+          {/* ं shooting star after */}
+          <div className="w-[1px] inset-x-0 mx-auto -bottom-32 h-32 bg-gradient-to-b from-primary/70 to-primary/5 absolute" />
+        </>
+      )}
+
       <div className="rounded-t-sm border h-10 gap-x-16 flex items-center justify-between px-4">
         <p className="text-sm">{title}</p>
         <div className="flex gap-x-3 items-center">

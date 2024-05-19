@@ -2,31 +2,21 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import {
-  Facebook,
-  Github,
-  Instagram,
-  Linkedin,
-  Loader2,
-  Minus,
-  Square,
-  Twitter,
-  X,
-} from "lucide-react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Loader2, Minus, Square, X } from "lucide-react";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
 import Logo from "@/components/logo";
 import { NAV_ITEMS, SOCIALS } from "@/lib/constants";
 import { NMachineRegular } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
-import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
-import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
+import Footer from "./common/footer";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 ///------------------------------------------------------------------------
 
-gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 ///------------------------------------------------------------------------
 
@@ -132,6 +122,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
           </nav>
           <div className="border-border border-r max-h-[calc(100vh-99px)] overflow-auto overflow-x-hidden">
             {children}
+            <Footer />
           </div>
         </div>
         <div className="flex border-border border rounded-bl">

@@ -1,24 +1,26 @@
 import HeroSection from "@/components/common/hero";
 import GetInTouch from "@/components/landing/get-in-touch";
 import PageLayout from "@/components/page-layout";
+import PProjects from "@/components/landing/projects";
 
-const Experience = () => {
+const Projects = () => {
   return (
     <PageLayout>
       <HeroSection
-        pageTitle="EXPERIENCE"
+        pageTitle="PROJECTS"
         heading={
           <>
-            Discover My
+            A collection my
             <br />
-            <span className="text-primary">Tech Career Timeline</span>
+            <span className="text-primary">best projects</span>
           </>
         }
         subheading="Embark on a Tech Odyssey: From Code Enthusiast to Seasoned Developer, Unraveling My Professional Evolution and Technical Expertise."
       />
+      <PProjects />
       <GetInTouch />
     </PageLayout>
   );
 };
 
-export default Experience;
+export default Projects;

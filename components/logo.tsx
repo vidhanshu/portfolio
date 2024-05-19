@@ -1,16 +1,23 @@
-import React from "react";
+"use client";
+
+import { useRouter } from "next/navigation";
 
 const Logo = ({
   pathProps = {},
   asIcon = true,
+  routable = true,
   ...props
 }: {
   asIcon?: boolean;
+  routable?: boolean;
   pathProps?: React.SVGProps<SVGPathElement>;
 } & React.SVGProps<SVGSVGElement>) => {
+  const router = useRouter();
+
   if (!asIcon)
     return (
       <svg
+        onClick={routable ? () => router.push("/") : undefined}
         width="168"
         height="13"
         viewBox="0 0 168 13"
@@ -31,6 +38,7 @@ const Logo = ({
     );
   return (
     <svg
+      onClick={routable ? () => router.push("/") : undefined}
       width="97"
       height="97"
       viewBox="0 0 97 97"
