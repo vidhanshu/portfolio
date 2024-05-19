@@ -1,28 +1,26 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import {
   Facebook,
   Github,
-  Home,
   Instagram,
-  Laptop,
   Linkedin,
   Loader2,
-  Mail,
   Minus,
   Square,
-  Trophy,
   Twitter,
-  UserRound,
   X,
 } from "lucide-react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import Logo from "@/components/logo";
+import { NAV_ITEMS } from "@/lib/constants";
 import { NMachineRegular } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { usePathname, useRouter } from "next/navigation";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 ///------------------------------------------------------------------------
 
@@ -31,13 +29,46 @@ gsap.registerPlugin(useGSAP);
 ///------------------------------------------------------------------------
 
 const CommonLayout = ({ children }: React.PropsWithChildren) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const container = useRef<HTMLDivElement>(null);
+
   // gsap animation to animate the layout window on load
-  useGSAP(() => {
-    gsap.to(".gsap-container", { scale: 1, duration: 0.2, ease: "circ" });
+  const { contextSafe } = useGSAP(
+    () => {
+      gsap.to(".gsap-container", { scale: 1, duration: 0.2, ease: "circ" });
+    },
+    { scope: container }
+  );
+
+  // set the primary color based on the route
+  useLayoutEffect(() => {
+    const color = NAV_ITEMS.find((item) => item.link === pathname)?.color;
+    if (color) {
+      document.documentElement
+        .getElementsByClassName("dark")[0]
+        .setAttribute("style", `--primary: ${color}`);
+    }
+  }, [pathname]);
+
+  const showRouteChangeAnimationForHeroSection = contextSafe((link: string) => {
+    if (link === pathname) return;
+
+    gsap.to(".gsap-hero-container", {
+      y: 100,
+      opacity: 0,
+      scale: 0.9,
+      duration: 0.2,
+      ease: "circ",
+      onComplete: () => {
+        router.push(link);
+      },
+    });
   });
 
   return (
-    <>
+    <div ref={container}>
       <LoadingUI />
       <main className="gsap-container scale-90 p-2 min-h-screen flex flex-col">
         <div className="flex border-border border rounded-tl">
@@ -50,12 +81,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
             />
           </div>
           <nav className="h-10 flex-1 flex items-center justify-center relative">
-            <h1
-              className={cn(
-                "flex gap-x-2 items-center",
-                NMachineRegular.className
-              )}
-            >
+            <h1 className={cn("flex gap-x-2 items-center", NMachineRegular.className)}>
               vidhanshu
               <p className="text-primary">&lt;borade&gt;</p>
             </h1>
@@ -73,22 +99,34 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
           </nav>
         </div>
         <div className="grid grid-cols-[40px_1fr] flex-1">
-          <nav className="border-border border-x flex flex-col justify-center items-center gap-4">
-            <button>
-              <Home className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-            </button>
-            <button>
-              <UserRound className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-            </button>
-            <button>
-              <Laptop className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-            </button>
-            <button>
-              <Trophy className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-            </button>
-            <button>
-              <Mail className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-            </button>
+          <nav className="border-border border-x flex flex-col justify-center items-center gap-4 z-20">
+            {NAV_ITEMS.map(({ link, icon: Icon, title, color }, idx) => {
+              const active = pathname === link;
+
+              return (
+                <TooltipProvider delayDuration={0} key={idx}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button
+                        onClick={() => {
+                          showRouteChangeAnimationForHeroSection(link);
+                        }}
+                      >
+                        <Icon
+                          className={cn(
+                            "text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2",
+                            { "text-primary stroke-2": active }
+                          )}
+                        />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent align="center" sideOffset={10} side="right">
+                      {title}
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              );
+            })}
           </nav>
           <div className="border-border border-r max-h-[calc(100vh-99px)] overflow-auto overflow-x-hidden">
             {children}
@@ -99,14 +137,8 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
             <button className="size-2 bg-primary rounded-full" />
           </div>
           <footer className="flex-1 h-10 flex items-center justify-center relative">
-            <p
-              className={cn(
-                "text-neutral-500 text-sm",
-                NMachineRegular.className
-              )}
-            >
-              &copy; {new Date().getFullYear()} Vidhanshu Borade. All rights
-              reserved.
+            <p className={cn("text-neutral-500 text-sm", NMachineRegular.className)}>
+              &copy; {new Date().getFullYear()} Vidhanshu Borade. All rights reserved.
             </p>
             <div className="flex gap-x-3 items-center absolute top-0 bottom-0 my-auto right-4">
               <button>
@@ -128,7 +160,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
           </footer>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 
@@ -142,7 +174,7 @@ const LoadingUI = () => {
       const handler = () => {
         gsap.to(".gsap-loader", {
           opacity: 0,
-          duration: .5,
+          duration: 0.5,
           ease: "circ",
           onComplete: () => setShow(false),
         });
@@ -156,11 +188,11 @@ const LoadingUI = () => {
       const timeout = window.setTimeout(() => {
         gsap.to(".gsap-loader", {
           opacity: 0,
-          duration: .5,
+          duration: 0.5,
           ease: "circ",
           onComplete: () => setShow(false),
         });
-      }, 0);
+      }, 1000); // custom delay of 1s
       return () => window.clearTimeout(timeout);
     }
   }, []);
@@ -177,12 +209,7 @@ const LoadingUI = () => {
           />
         </div>
         <div className="flex items-center justify-center px-16">
-          <h1
-            className={cn(
-              "flex gap-x-2 items-center",
-              NMachineRegular.className
-            )}
-          >
+          <h1 className={cn("flex gap-x-2 items-center", NMachineRegular.className)}>
             vidhanshu
             <p className="text-primary">&lt;borade&gt;</p>
           </h1>
