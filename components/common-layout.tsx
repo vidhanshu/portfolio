@@ -2,13 +2,13 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Loader2, Minus, Square, X } from "lucide-react";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import Logo from "@/components/logo";
 import { NAV_ITEMS, SOCIALS } from "@/lib/constants";
 import { NMachineRegular } from "@/lib/fonts";
+import { toggleFullScreen } from "@/lib/helpers";
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import Footer from "./common/footer";
@@ -16,7 +16,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/t
 
 ///------------------------------------------------------------------------
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 ///------------------------------------------------------------------------
 
@@ -62,7 +62,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <div ref={container}>
       <LoadingUI />
-      <main className="gsap-container scale-90 p-2 min-h-screen flex flex-col">
+      <main className="gsap-container scale-90 p-2  flex flex-col">
         <div className="flex border-border border rounded-tl">
           <div className="border-border border-r h-10 w-[39px] flex items-center justify-center">
             <Logo
@@ -82,7 +82,10 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
                 <Minus className="text-neutral-500 stroke-1 size-4 hover:text-white hover:stroke-2" />
               </button>
               <button>
-                <Square className="text-neutral-500 stroke-1 size-3 hover:text-white hover:stroke-2" />
+                <Square
+                  onClick={() => toggleFullScreen()}
+                  className="text-neutral-500 stroke-1 size-3 hover:text-white hover:stroke-2"
+                />
               </button>
               <button>
                 <X className="text-neutral-700 stroke-2 size-4 hover:text-white hover:stroke-2" />

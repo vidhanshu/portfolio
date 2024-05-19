@@ -111,3 +111,9 @@ export const TECHSTACK = [
   { image: gql, name: "GraphQL" },
   { image: docker, name: "Docker" },
 ];
+
+// framer-motion animations
+export const fmAnimations = {
+  hidden: { scale: 0.8, y: 20, opacity: 0 },
+  visible: { scale: 1, y: 0, opacity: 1 },
+};

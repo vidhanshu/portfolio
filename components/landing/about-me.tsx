@@ -168,9 +168,11 @@ const AboutMe = () => {
         </WindowScreen>
       </div>
       <div className="flex justify-center mt-5">
-        <Button variant="primary" size="primary">
-          more-about-me
-        </Button>
+        <Link href="/about">
+          <Button variant="primary" size="primary">
+            more-about-me
+          </Button>
+        </Link>
       </div>
     </Section>
   );

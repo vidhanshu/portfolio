@@ -1,8 +1,11 @@
+"use client";
+
+import { fmAnimations } from "@/lib/constants";
 import { PPNMedium } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
-import React from "react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
 ///---------------------------------------------------------------------------------------------------------
@@ -19,7 +22,16 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ idx, tags, name, image, year }: ProjectCardProps) => {
   return (
-    <div className="group/card border border-border rounded-sm px-8 py-20 bg-background/40 backdrop-blur-sm">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{
+        hidden: fmAnimations.hidden,
+        visible: fmAnimations.visible,
+      }}
+      className="group/card border border-border rounded-sm px-8 py-20 bg-background/40 backdrop-blur-sm"
+    >
       <div className="flex relative justify-between items-center gap-x-4">
         <div className="flex gap-x-4 items-start w-full max-w-[425px]">
           <p
@@ -47,7 +59,7 @@ const ProjectCard = ({ idx, tags, name, image, year }: ProjectCardProps) => {
                       {tag}
                     </span>
                   ))}
-                <TooltipProvider delayDuration={0}>
+                  <TooltipProvider delayDuration={0}>
                     <Tooltip>
                       <TooltipTrigger>
                         <span
@@ -115,7 +127,7 @@ const ProjectCard = ({ idx, tags, name, image, year }: ProjectCardProps) => {
           </h1>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

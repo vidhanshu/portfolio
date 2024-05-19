@@ -1,7 +1,10 @@
-import { NMachineRegular, PPNMedium } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
+"use client";
+
 import { Minus, Square, X } from "lucide-react";
 import React, { PropsWithChildren } from "react";
+
+import { PPNMedium } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 ///-------------------------------------------------------------------------------------------
 
@@ -32,9 +35,9 @@ const WindowScreen = ({
     >
       {shootingStar && (
         <>
-          {/* ं shooting star before */}
+          {/* shooting star before */}
           <div className="w-[1px] inset-x-0 mx-auto -top-32 h-32 bg-gradient-to-t from-primary/70 to-primary/5 absolute" />
-          {/* ं shooting star after */}
+          {/* shooting star after */}
           <div className="w-[1px] inset-x-0 mx-auto -bottom-32 h-32 bg-gradient-to-b from-primary/70 to-primary/5 absolute" />
         </>
       )}
