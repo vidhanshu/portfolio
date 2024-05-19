@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Section from "../section";
-import WindowScreen from "../common/window-screen";
-import Link from "next/link";
 import { HOBBIES, SOCIALS } from "@/lib/constants";
+import gsap from "gsap";
+import { Draggable } from "gsap/all";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
-import gsap from "gsap";
-import { Draggable, InertiaPlugin } from "gsap/all";
+import Link from "next/link";
+import { useEffect } from "react";
+import WindowScreen from "../common/window-screen";
+import Section from "../section";
 import { Button } from "../ui/button";
+import InertiaPlugin from "gsap-trial";
 
 ///-------------------------------------------------------------------------------------------------------------
 
@@ -58,7 +59,7 @@ const FullstackDeveloper = () => {
             <ol className="list-decimal space-y-2 text-neutral-500">
               <li>
                 <div className="text-white">
-                  Nice to meet you! I&apos;m Vidhanshu, I'm a
+                  Nice to meet you! I&apos;m Vidhanshu, I&apos;m a
                   <span className="text-primary"> Fullstack Software Developer</span>.
                 </div>
               </li>
@@ -95,7 +96,10 @@ const FullstackDeveloper = () => {
           </div>
         </WindowScreen>
         <WindowScreen
-          containerProps={{ id: "gsap-draggable-3", className: "absolute bottom-[10%] m-auto left-0" }}
+          containerProps={{
+            id: "gsap-draggable-3",
+            className: "absolute bottom-[10%] m-auto left-0",
+          }}
           title="find-me-here"
         >
           <div className="pl-4">
