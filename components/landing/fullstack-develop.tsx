@@ -149,7 +149,7 @@ const FullstackDeveloper = () => {
           <div className="pl-4">
             <ol className="list-decimal space-y-2 text-neutral-500">
               {HOBBIES.map(({ icon, label }, idx) => (
-                <li>
+                <li key={idx}>
                   <p className="text-white">
                     {icon} {label}
                   </p>
