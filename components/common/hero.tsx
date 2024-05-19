@@ -74,20 +74,20 @@ const HeroSection = ({
             <p
               className={cn(
                 NMachineRegular.className,
-                "gsap-title-text scope-90 text-base text-neutral-500"
+                "gsap-title-text scale-90 text-base text-neutral-500"
               )}
             >
               {pageTitle}
             </p>
             <h1
-              className={cn("gsap-title-text scope-90 text-8xl text-center", PPNMedium.className)}
+              className={cn("gsap-title-text scale-90 text-8xl text-center", PPNMedium.className)}
             >
               {heading}
             </h1>
             <p
               className={cn(
                 NMachineRegular.className,
-                "gsap-title-text scope-90 text-base text-neutral-500 max-w-xl text-center"
+                "gsap-title-text scale-90 text-base text-neutral-500 max-w-xl text-center"
               )}
             >
               {subheading}

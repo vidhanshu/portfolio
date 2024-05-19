@@ -1,4 +1,6 @@
 import HeroSection from "@/components/common/hero";
+import FullstackDeveloper from "@/components/landing/fullstack-develop";
+import Projects from "@/components/landing/projects";
 import PageLayout from "@/components/page-layout";
 
 const Landing = () => {
@@ -13,6 +15,8 @@ const Landing = () => {
           </>
         }
       />
+      <Projects />
+      <FullstackDeveloper />
     </PageLayout>
   );
 };

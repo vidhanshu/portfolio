@@ -23,8 +23,8 @@ const PageLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className="relative overflow-hidden" ref={containerRef}>
       {/* blurred radials */}
-      <div className="gsap-left-radial top-0 right-0 fixed w-[500px] h-[500px] bg-primary/30 blur-[150px] rounded-full z-0" />
-      <div className="gsap-right-radial bottom-0 fixed w-[500px] h-[500px] bg-primary/30 blur-[150px] rounded-full z-0" />
+      <div className="gsap-left-radial top-0 right-0 fixed w-[500px] h-[500px] bg-primary/30 blur-[150px] rounded-full -z-10" />
+      <div className="gsap-right-radial bottom-0 fixed w-[500px] h-[500px] bg-primary/30 blur-[150px] rounded-full -z-10" />
 
       {children}
     </div>

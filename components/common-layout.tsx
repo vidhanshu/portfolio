@@ -15,16 +15,18 @@ import {
 } from "lucide-react";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import Logo from "@/components/logo";
-import { NAV_ITEMS } from "@/lib/constants";
-import { NMachineRegular } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import Logo from "@/components/logo";
+import { NAV_ITEMS, SOCIALS } from "@/lib/constants";
+import { NMachineRegular } from "@/lib/fonts";
 import { usePathname, useRouter } from "next/navigation";
+import { ScrollTrigger } from "gsap-trial/ScrollTrigger";
+import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 ///------------------------------------------------------------------------
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);
 
 ///------------------------------------------------------------------------
 
@@ -141,21 +143,11 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
               &copy; {new Date().getFullYear()} Vidhanshu Borade. All rights reserved.
             </p>
             <div className="flex gap-x-3 items-center absolute top-0 bottom-0 my-auto right-4">
-              <button>
-                <Linkedin className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-              </button>
-              <button>
-                <Instagram className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-              </button>
-              <button>
-                <Facebook className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-              </button>
-              <button>
-                <Twitter className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-              </button>
-              <button>
-                <Github className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
-              </button>
+              {SOCIALS.map(({ icon: Icon }, idx) => (
+                <button key={idx}>
+                  <Icon className="text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2" />
+                </button>
+              ))}
             </div>
           </footer>
         </div>
@@ -192,13 +184,13 @@ const LoadingUI = () => {
           ease: "circ",
           onComplete: () => setShow(false),
         });
-      }, 1000); // custom delay of 1s
+      }, 0);
       return () => window.clearTimeout(timeout);
     }
   }, []);
 
   return show ? (
-    <main className="gsap-loader z-20 h-full w-full fixed flex items-center justify-center bg-background">
+    <main className="gsap-loader z-20 h-full w-full fixed flex items-center justify-center bg-background cursor-wait">
       <div className="inset-0 m-auto fixed w-[550px] h-[550px] bg-primary/30 blur-[150px] rounded-full" />
 
       <div className="flex max-w-3xl border rounded-l-sm rounded-r-sm bg-black/80">

@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-primary selection:text-primary-foreground;
+    @apply border-border selection:bg-primary selection:text-primary-foreground transition-all duration-75;
   }
   body {
     @apply bg-background text-foreground;
