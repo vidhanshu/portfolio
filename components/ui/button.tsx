@@ -1,10 +1,10 @@
-import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
+import { PPNMedium } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
-import { PPNMedium } from "@/lib/fonts";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -39,10 +39,11 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  showArrow?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, children, variant, size, asChild = false, showArrow = true, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
@@ -54,12 +55,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className={cn(
             variant === "primary"
               ? "relative group-hover:text-primary flex gap-x-2 items-center" + PPNMedium.className
-              : ""
+              : "flex gap-x-2 items-center"
           )}
         >
-          {children} <ArrowRight className="size-4 mt-[1px] group-hover:translate-x-1" />
+          {children}{" "}
+          {showArrow && <ArrowRight className="size-4 mt-[1px] group-hover:translate-x-1" />}
         </div>
-        <span className="absolute top-0 left-0 flex w-0 h-full mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-primary/10 group-hover:w-full opacity-90"></span>
+        {variant === "primary" && (
+          <span className="absolute top-0 left-0 flex w-0 h-full mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-primary/10 group-hover:w-full opacity-90"></span>
+        )}
       </Comp>
     );
   }

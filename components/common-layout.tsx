@@ -50,9 +50,8 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
     gsap.to(".gsap-hero-container", {
       y: 100,
       opacity: 0,
-      scale: 0.9,
       duration: 0.2,
-      ease: "circ",
+      ease: "sine.out",
       onComplete: () => {
         router.push(link);
       },

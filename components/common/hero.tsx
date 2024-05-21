@@ -4,9 +4,9 @@ import React, { useRef } from "react";
 
 import { NMachineRegular, PPNMedium, PPNUltraBold } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { usePathname } from "next/navigation";
 
 ///------------------------------------------------------------------------
 
@@ -34,8 +34,8 @@ const HeroSection = ({
         y: 0,
         opacity: 1,
         scale: 1,
-        duration: 0.2,
-        ease: "circ.out",
+        duration: 0.3,
+        ease: "sine.in",
       });
     },
     { scope: container }
@@ -43,7 +43,7 @@ const HeroSection = ({
 
   return (
     <div ref={container}>
-      <div className="gsap-hero-container -translate-y-24" >
+      <div className="gsap-hero-container scale-50 opacity-0">
         <div className="relative h-[calc(100vh-99px)] w-full flex justify-center items-center overflow-hidden">
           {/* background huge infinite scrolling text */}
           <div
