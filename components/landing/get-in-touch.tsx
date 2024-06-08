@@ -34,7 +34,7 @@ const GetInTouch = () => {
           containerProps={{ className: "w-full bg-background/40" }}
           title="Collaboration"
         >
-          <div className="px-8 py-10 flex gap-x-8 items-start">
+          <div className="px-4 md:px-8 py-10 flex md:flex-row flex-col gap-x-8 items-center md:items-start">
             <div className="relative">
               <Image
                 alt="profile-pic"
@@ -47,8 +47,8 @@ const GetInTouch = () => {
                 👋
               </button>
             </div>
-            <div>
-              <h1 className={cn("text-5xl mb-6", PPObjectSansRegular.className)}>
+            <div className="flex flex-col items-center md:block">
+              <h1 className={cn("mt-6 md:mt-0 text-center md:text-left text-3xl md:text-5xl mb-6", PPObjectSansRegular.className)}>
                 Let&apos;s work together on your next project
               </h1>
               <Link href="/contact">

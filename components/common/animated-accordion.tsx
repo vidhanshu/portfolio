@@ -52,37 +52,37 @@ const AnimatedAccordion = ({
             hidden: fmAnimations.hidden,
             visible: fmAnimations.visible,
           }}
-          className="group/card border border-border rounded-sm px-8 bg-background/40 backdrop-blur-sm"
+          className="group/card border border-border rounded-sm px-4 md:px-8 bg-background/40 backdrop-blur-sm"
         >
           <AccordionItem asChild className="pb-4" value={`item-${idx + 1}`}>
             <>
-              <div className="flex py-16 relative justify-between items-center gap-x-4">
+              <div className="flex md:flex-row flex-col py-4 md:py-16 relative justify-between items-center gap-4">
                 <div className="flex gap-x-4 items-start w-full max-w-[425px]">
                   <p
                     className={cn(
                       PPNMedium.className,
-                      "w-8 ease-out duration-300 transition-all text-base text-neutral-600 group-hover/card:w-0 overflow-hidden"
+                      "w-12 md:w-8 md:ease-out md:duration-300 md:transition-all text-base text-neutral-600 md:group-hover/card:w-0 overflow-hidden"
                     )}
                   >
                     {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
                   </p>
                   <div className="space-y-6">
-                    <h1 className="text-4xl max-w-md">{title}</h1>
+                    <h1 className="text-3xl md:text-4xl max-w-md">{title}</h1>
                     <TagsRenderer tags={tags} maxCount={2} />
                   </div>
                 </div>
-                <div>
+                <div className="flex items-center justify-center flex-col">
                   <h1 className={cn("text-xs text-neutral-600", PPNMedium.className)}>{date}</h1>
                   <AccordionTrigger open={value === `item-${idx + 1}`} />
                 </div>
               </div>
-              <AccordionContent className="border-t py-8">
-                <div className="flex gap-x-6">
+              <AccordionContent className="border-t py-4 md:py-8">
+                <div className="flex flex-col md:flex-row gap-x-6">
                   <Image
                     src={image}
                     width={471}
                     height={266}
-                    className="aspect-video object-cover rounded-sm"
+                    className="aspect-square h-40 md:aspect-video object-cover rounded-sm"
                     alt={title}
                   />
                   <div className={cn("flex flex-col justify-between gap-6", PPNMedium.className)}>

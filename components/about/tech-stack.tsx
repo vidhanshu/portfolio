@@ -27,7 +27,7 @@ const TechStack = () => {
         }}
       >
         <WindowScreen shootingStar containerProps={{ className: "w-full my-32" }} title="techs">
-          <div className="grid grid-cols-4 gap-10 py-8 px-8">
+          <div className="grid justify-center md:justify-normal md:grid-cols-4 gap-10 py-8 px-8">
             {TECHSTACK.map(({ image, name }, idx) => (
               <Image
                 key={idx}

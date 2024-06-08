@@ -16,6 +16,7 @@ interface HeroSectionProps {
   pageTitle: string;
   heading: React.ReactNode;
   subheading?: string;
+  extra?: React.ReactNode;
 }
 
 ///------------------------------------------------------------------------
@@ -24,8 +25,8 @@ const HeroSection = ({
   heading,
   pageTitle,
   subheading = "I bring value to web development projects by merging technical expertise with creativity and aesthetics.",
+  extra,
 }: HeroSectionProps) => {
-  const pathname = usePathname();
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -80,10 +81,11 @@ const HeroSection = ({
               {pageTitle}
             </p>
             <h1
-              className={cn("gsap-title-text scale-90 text-8xl text-center", PPNMedium.className)}
+              className={cn("gsap-title-text scale-90 text-5xl md:text-8xl text-center", PPNMedium.className)}
             >
               {heading}
             </h1>
+            {extra}
             <p
               className={cn(
                 NMachineRegular.className,

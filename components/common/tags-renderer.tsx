@@ -18,7 +18,7 @@ const TagsRenderer = ({
           {tags.slice(0, maxCount).map((tag, idx) => (
             <span
               className={cn(
-                "border border-border mr-2 rounded-full py-2 px-4 bg-background/40 text-sm text-neutral-500",
+                "border border-border mr-2 rounded-full h-8 flex items-center justify-center px-4 bg-background/40 text-sm text-neutral-500",
                 className,
                 PPNMedium.className
               )}
@@ -32,7 +32,7 @@ const TagsRenderer = ({
               <TooltipTrigger asChild>
                 <span
                   className={cn(
-                    "border border-border mr-2 rounded-full py-2 px-4 bg-background/40 text-sm text-neutral-500",
+                    "border border-border mr-2 rounded-full h-8 flex items-center justify-center px-4 bg-background/40 text-sm text-neutral-500",
                     className,
                     PPNMedium.className
                   )}
@@ -49,7 +49,7 @@ const TagsRenderer = ({
           <span
             key={idx}
             className={cn(
-              "border border-border mr-2 rounded-full py-2 px-4 bg-background/40",
+              "border border-border mr-2 rounded-full h-8 flex items-center justify-center px-4 bg-background/40",
               PPNMedium.className,
               "text-sm text-neutral-500",
               className

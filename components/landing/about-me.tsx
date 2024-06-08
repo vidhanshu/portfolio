@@ -42,9 +42,9 @@ const AboutMe = () => {
         </>
       }
     >
-      <div className="relative h-screen space-y-4 gsap-container-bound">
+      <div className="relative min-h-screen md:min-h-fit md:h-screen space-y-4 gsap-container-bound flex flex-col gap-4 md:block">
         <WindowScreen
-          containerProps={{ id: "gsap-draggable-2", className: "absolute top-0 inset-x-0 mx-auto" }}
+          containerProps={{ id: "gsap-draggable-2", className: "md:absolute md:top-0 md:inset-x-0 md:mx-auto" }}
           title="about-me"
         >
           <div className="pl-4 max-w-2xl">
@@ -90,7 +90,7 @@ const AboutMe = () => {
         <WindowScreen
           containerProps={{
             id: "gsap-draggable-3",
-            className: "absolute bottom-[10%] m-auto left-0",
+            className: "md:absolute bottom-[10%] m-auto left-0",
           }}
           title="find-me-here"
         >
@@ -110,7 +110,7 @@ const AboutMe = () => {
           </div>
         </WindowScreen>
         <WindowScreen
-          containerProps={{ id: "gsap-draggable-1", className: "absolute bottom-[40%] left-16" }}
+          containerProps={{ id: "gsap-draggable-1", className: "md:absolute md:bottom-[40%] md:left-16" }}
           title="where-i-work"
         >
           <div className="pl-4">
@@ -134,7 +134,7 @@ const AboutMe = () => {
         <WindowScreen
           containerProps={{
             id: "gsap-draggable-4",
-            className: "absolute bottom-[10%] inset-x-0 mx-auto",
+            className: "md:absolute md:bottom-[10%] md:inset-x-0 md:mx-auto",
           }}
           title="hobbies"
         >
@@ -153,7 +153,7 @@ const AboutMe = () => {
         <WindowScreen
           containerProps={{
             id: "gsap-draggable-5",
-            className: "absolute top-[40%] right-0  h-fit",
+            className: "md:absolute md:top-[40%] md:right-0 h-fit",
           }}
           className="p-0 h-fit"
           title="hobbies"
@@ -163,7 +163,7 @@ const AboutMe = () => {
             src="/profile.jpg"
             width={300}
             height={300}
-            className="aspect-square max-w-[300px] rounded-b-sm"
+            className="aspect-square max-w-full md:max-w-[300px] rounded-b-sm"
           />
         </WindowScreen>
       </div>

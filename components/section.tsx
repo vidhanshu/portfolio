@@ -12,7 +12,7 @@ const Section = ({
   ...props
 }: { sectionTitle?: PropsWithChildren["children"] } & React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <section className={cn("py-16", className)} {...props}>
+    <section className={cn("py-16 px-4", className)} {...props}>
       <motion.h1
         initial="hidden"
         whileInView="visible"
@@ -21,7 +21,7 @@ const Section = ({
           hidden: fmAnimations.hidden,
           visible: fmAnimations.visible,
         }}
-        className={cn("text-5xl text-center mb-12")}
+        className={cn("text-4xl md:text-5xl text-center mb-12")}
       >
         {sectionTitle}
       </motion.h1>

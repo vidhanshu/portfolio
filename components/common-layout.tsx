@@ -2,7 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Loader2, Minus, Square, X } from "lucide-react";
+import { Loader2, Menu, Minus, Square, X } from "lucide-react";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import Logo from "@/components/logo";
@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
 import Footer from "./common/footer";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 ///------------------------------------------------------------------------
 
@@ -21,6 +22,8 @@ gsap.registerPlugin(useGSAP);
 ///------------------------------------------------------------------------
 
 const CommonLayout = ({ children }: React.PropsWithChildren) => {
+  const [open, setOpen] = useState(false);
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -61,7 +64,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <div ref={container}>
       <LoadingUI />
-      <main className="gsap-container scale-90 p-2  flex flex-col">
+      <main className="overflow-hidden gsap-container scale-90 p-2 flex flex-col">
         <div className="flex border-border border rounded-tl">
           <div className="border-border border-r h-10 w-[39px] flex items-center justify-center">
             <Logo
@@ -71,12 +74,12 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
               }}
             />
           </div>
-          <nav className="h-10 flex-1 flex items-center justify-center relative">
+          <nav className="h-10 flex-1 flex items-center md:justify-center justify-between px-4 md:px-0 relative">
             <h1 className={cn("flex gap-x-2 items-center", NMachineRegular.className)}>
               vidhanshu
               <p className="text-primary">&lt;borade&gt;</p>
             </h1>
-            <div className="flex gap-x-3 items-center absolute right-4 top-0 bottom-0 my-auto">
+            <div className="hidden md:flex gap-x-3 items-center absolute right-4 top-0 bottom-0 my-auto">
               <button>
                 <Minus className="text-neutral-500 stroke-1 size-4 hover:text-white hover:stroke-2" />
               </button>
@@ -90,10 +93,42 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
                 <X className="text-neutral-700 stroke-2 size-4 hover:text-white hover:stroke-2" />
               </button>
             </div>
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <button>
+                  <Menu className="text-white size-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent>
+                <nav className="flex flex-col pt-16 gap-6 z-20">
+                  {NAV_ITEMS.map(({ link, icon: Icon, title, color }, idx) => {
+                    const active = pathname === link;
+
+                    return (
+                      <button
+                        className="flex gap-x-4 items-center"
+                        onClick={() => {
+                          setOpen(false);
+                          showRouteChangeAnimationForHeroSection(link);
+                        }}
+                      >
+                        <Icon
+                          className={cn(
+                            "text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2",
+                            { "text-primary stroke-2": active }
+                          )}
+                        />{" "}
+                        {title}
+                      </button>
+                    );
+                  })}
+                </nav>
+              </SheetContent>
+            </Sheet>
           </nav>
         </div>
-        <div className="grid grid-cols-[40px_1fr] flex-1">
-          <nav className="border-border border-x flex flex-col justify-center items-center gap-4 z-20">
+        <div className="grid border-l md:border-none md:grid-cols-[40px_1fr] flex-1">
+          <nav className="hidden border-border border-x md:flex flex-col justify-center items-center gap-4 z-20">
             {NAV_ITEMS.map(({ link, icon: Icon, title, color }, idx) => {
               const active = pathname === link;
 
@@ -131,9 +166,10 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
           <div className="border-border border-r h-10 w-[39px] flex items-center justify-center">
             <button className="size-2 bg-primary rounded-full" />
           </div>
-          <footer className="flex-1 h-10 flex items-center justify-center relative">
+          <footer className="flex-1 h-10 flex items-center justify-between pl-4 md:pl-0 md:justify-center relative">
             <p className={cn("text-neutral-500 text-sm", NMachineRegular.className)}>
-              &copy; {new Date().getFullYear()} Vidhanshu Borade. All rights reserved.
+              &copy; {new Date().getFullYear()}
+              <span className="hidden md:inline"> Vidhanshu Borade. All rights reserved.</span>
             </p>
             <div className="flex gap-x-3 items-center absolute top-0 bottom-0 my-auto right-4">
               {SOCIALS.map(({ icon: Icon }, idx) => (
@@ -193,7 +229,7 @@ const LoadingUI = () => {
             pathProps={{ className: "stroke-white group-hover:stroke-primary" }}
           />
         </div>
-        <div className="flex items-center justify-center px-16">
+        <div className="flex items-center justify-center px-4 md:px-16">
           <h1 className={cn("flex gap-x-2 items-center", NMachineRegular.className)}>
             vidhanshu
             <p className="text-primary">&lt;borade&gt;</p>
