@@ -106,6 +106,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
 
                     return (
                       <button
+                        key={idx}
                         className="flex gap-x-4 items-center"
                         onClick={() => {
                           setOpen(false);
