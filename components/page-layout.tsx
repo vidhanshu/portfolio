@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -9,7 +10,7 @@ import { PropsWithChildren, useRef } from "react";
 gsap.registerPlugin(useGSAP);
 ///------------------------------------------------------------------------
 
-const PageLayout = ({ children }: PropsWithChildren) => {
+const PageLayout = ({ children, className }: PropsWithChildren & {className?:string}) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -21,7 +22,7 @@ const PageLayout = ({ children }: PropsWithChildren) => {
   );
 
   return (
-    <div className="relative overflow-hidden" ref={containerRef}>
+    <div className={cn("relative overflow-hidden", className)} ref={containerRef}>
       {/* blurred radials */}
       <div className="gsap-left-radial top-0 right-0 fixed w-[500px] h-[500px] bg-primary/30 blur-[150px] rounded-full -z-10" />
       <div className="gsap-right-radial bottom-0 fixed w-[500px] h-[500px] bg-primary/30 blur-[150px] rounded-full -z-10" />

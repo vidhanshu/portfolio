@@ -50,35 +50,47 @@ export const NAV_ITEMS = [
 export const PROJECTS = [
   {
     name: "Portfolio",
+    slug: "portfolio",
     tags: ["react", "next", "gsap", "tailwind"],
     image: "/projects/portfolio.png",
     year: "2024",
     live: "https://vidhanshu-borade.vercel.app",
     github: "https://github.com/vidhanshu/portfolio",
+    description:
+      "This portfolio showcases my skills and projects as a software engineer with a focus on web development and DevOps. Built using modern technologies like React and ShadCN UI, the website highlights my experience in building responsive, user-friendly interfaces and deploying applications on cloud platforms like AWS. The site is designed to be a comprehensive introduction to my professional background, with sections dedicated to my work experience, educational achievements, and technical skills.",
   },
   {
     name: "Eateaser",
+    slug: "eat-easer",
     tags: ["redis", "aws", "mongo-db", "vite", "tailwind"],
     image: "/projects/eateaser.png",
     year: "2024",
     live: "https://eat-easer-customer.vercel.app/",
     github: "https://github.com/vidhanshu/eateaser",
+    description:
+      "EatEaser is a comprehensive restaurant management system designed to streamline operations and enhance the efficiency of restaurant businesses. The system provides tools for managing reservations, orders, inventory, and customer relationships, all within a single, user-friendly platform. Built with scalability in mind, EatEaser caters to the needs of small eateries as well as larger restaurant chains. The application integrates modern web technologies to offer a responsive and intuitive interface, ensuring ease of use for staff and management alike. Whether you're handling daily operations or analyzing sales data, EatEaser provides a robust solution to manage your restaurant business effectively.",
   },
   {
     name: "Trello Clone",
+    slug: "trello-clone",
     tags: ["next", "postgreSQL", "next-auth", "tailwind"],
     image: "/projects/vello.png",
     year: "2024",
     live: "https://vello-brown.vercel.app/",
     github: "https://github.com/vidhanshu/vello",
+    description:
+      "This Trello clone is a task management application that replicates the core functionalities of Trello, providing an intuitive and flexible platform for organizing projects and collaborating with teams. The application allows users to create boards, lists, and cards to manage tasks, track progress, and enhance productivity. With drag-and-drop functionality, users can easily move tasks between different stages of completion. The clone is built using modern web technologies, ensuring a responsive and user-friendly interface that adapts seamlessly to various devices. Whether for personal task management or team collaboration, this Trello clone offers an efficient solution for keeping projects on track.",
   },
   {
     name: "RT Tic Tac Toe",
+    slug: "realtime-tic-tac-toe",
     tags: ["next", "node", "socket-io", "tailwind"],
     image: "/projects/ttt.png",
     year: "2024",
     live: "https://tic-tac-go-one.vercel.app/",
     github: "https://github.com/vidhanshu/tictacgo",
+    description:
+      "This real-time Tic Tac Toe game brings a modern twist to the classic game by incorporating interactive features that enhance the multiplayer experience. Players can compete in real-time, challenging friends or other online opponents to quick, engaging matches. Key features include in-game chat, allowing players to communicate during gameplay, and a set of fun emotes to express reactions, making each match more interactive and enjoyable. The game's sleek and responsive design ensures a smooth experience across devices, whether you're playing on a computer, tablet, or smartphone. Perfect for casual gaming, this Tic Tac Toe game combines simplicity with real-time interaction, offering both entertainment and a touch of friendly competition.",
   },
 ];
 
@@ -142,4 +154,6 @@ export const ACHIEVEMENTS = [
 export const fmAnimations = {
   hidden: { scale: 0.8, y: 20, opacity: 0 },
   visible: { scale: 1, y: 0, opacity: 1 },
+  scaleDown: { scale: 0.8, opacity: 0.3 },
+  scaleUp: { scale: 1, opacity: 1 },
 };

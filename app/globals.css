@@ -75,12 +75,26 @@
   }
 }
 
+html {
+  overflow-y: hidden;
+}
+
 * {
   color-scheme: dark;
   scrollbar-color: oklch(var(--primary)) transparent;
   scrollbar-width: thin;
 }
 
+.scroll-line-na {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -18%;
+  margin: auto;
+  height: 800px;
+  width: 2px;
+  background-image: linear-gradient(to bottom, transparent, hsla(var(--primary)), transparent);
+}
 /* shooting star */
 .scroll-line {
   position: absolute;
