@@ -1,4 +1,4 @@
-import {  ACHIEVEMENTS } from "@/lib/constants";
+import { ACHIEVEMENTS } from "@/lib/constants";
 import AnimatedAccordion from "../common/animated-accordion";
 import Section from "../section";
 

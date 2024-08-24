@@ -5,13 +5,7 @@ import ProjectCard from "./project-card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-const Projects = ({
-  shootingStar = false,
-  showButton = true,
-}: {
-  shootingStar?: boolean;
-  showButton?: boolean;
-}) => {
+const Projects = ({ shootingStar = false, showButton = true }: { shootingStar?: boolean; showButton?: boolean }) => {
   return (
     <Section
       id="projects-section"

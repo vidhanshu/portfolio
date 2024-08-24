@@ -1,16 +1,4 @@
-import {
-  Facebook,
-  Github,
-  Home,
-  Instagram,
-  Linkedin,
-  Mail,
-  Target,
-  Trophy,
-  Twitter,
-  UserRound,
-  Zap,
-} from "lucide-react";
+import { Facebook, Github, Home, Instagram, Linkedin, Mail, Target, Trophy, Twitter, UserRound, Zap } from "lucide-react";
 import nextjs from "@/public/teck-stack/next.svg";
 import node from "@/public/teck-stack/node.svg";
 import react from "@/public/teck-stack/react.svg";
@@ -127,8 +115,7 @@ export const ACHIEVEMENTS = [
     date: "Aug 22, 2022",
     description:
       "My team named Serious wale Coders won the prize worth 1 lakh @Smart India Hackathon in August'22. Our problem statement was, Improve the attractiveness & user-friendliness of the AICTE website.",
-    certificate:
-      "https://drive.google.com/file/d/1nmezls7VzJPCa3iT_zVzSdcpgKVd-ZQi/view?usp=sharing",
+    certificate: "https://drive.google.com/file/d/1nmezls7VzJPCa3iT_zVzSdcpgKVd-ZQi/view?usp=sharing",
     tags: ["react", "Firebase", "Scss", "framer-motion"],
     news: "https://www.aninews.in/news/business/business/grand-finale-of-smart-india-hackathon-2022-inaugurated-at-chandigarh-university-gharuan20220826101515/",
   },
@@ -145,8 +132,7 @@ export const ACHIEVEMENTS = [
     image: "/achievements/uia.webp",
     title: "UIA International Hackathon finalist",
     date: "Feb 22, 2023",
-    description:
-      "My team named “Team Meeseeks” was the Finalist of UIA hackathon August'22. Our problem statement was, “Detect the soil nutrients based on the image capture from phone camera”.",
+    description: "My team named “Team Meeseeks” was the Finalist of UIA hackathon August'22. Our problem statement was, “Detect the soil nutrients based on the image capture from phone camera”.",
     certificate: "https://drive.google.com/file/d/1aWJ8B4f4W2hnTkBhvLNbQghyncZgci7N/view",
     tags: ["react", "react-native", "google-news-api", "ai-ml", "dyte-api"],
   },

@@ -37,20 +37,9 @@ const ProjectCard = ({ idx, tags, name, image, year, github, live }: ProjectCard
       className="group/card border border-border rounded-sm px-4 md:px-8 py-4 md:py-20 bg-background/40 backdrop-blur-sm"
     >
       <div className="flex-col md:flex-row flex relative justify-between items-center gap-x-4">
-        <Image
-          className="md:hidden border rounded-md max-w-full md:max-w-[420px] aspect-video mb-8"
-          src={image}
-          width={640}
-          height={314}
-          alt={name}
-        />
+        <Image className="md:hidden border rounded-md max-w-full md:max-w-[420px] aspect-video mb-8" src={image} width={640} height={314} alt={name} />
         <div className="flex gap-x-4 items-start w-full max-w-[425px]">
-          <p
-            className={cn(
-              PPNMedium.className,
-              "w-10 md:w-8 ease-out duration-300 transition-all text-base text-neutral-600 md:group-hover/card:w-0 overflow-hidden"
-            )}
-          >
+          <p className={cn(PPNMedium.className, "w-10 md:w-8 ease-out duration-300 transition-all text-base text-neutral-600 md:group-hover/card:w-0 overflow-hidden")}>
             {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
           </p>
           <div className="space-y-6">
@@ -60,11 +49,7 @@ const ProjectCard = ({ idx, tags, name, image, year, github, live }: ProjectCard
                 <>
                   {tags.slice(0, 3).map((tag, idx) => (
                     <span
-                      className={cn(
-                        "border border-border mr-2 rounded-full h-6 flex items-center justify-center px-4 bg-background/40",
-                        PPNMedium.className,
-                        "text-sm text-neutral-500"
-                      )}
+                      className={cn("border border-border mr-2 rounded-full h-6 flex items-center justify-center px-4 bg-background/40", PPNMedium.className, "text-sm text-neutral-500")}
                       key={idx}
                     >
                       {tag}
@@ -73,13 +58,7 @@ const ProjectCard = ({ idx, tags, name, image, year, github, live }: ProjectCard
                   <TooltipProvider delayDuration={0}>
                     <Tooltip>
                       <TooltipTrigger>
-                        <span
-                          className={cn(
-                            "border border-border mr-2 rounded-full h-6 flex items-center justify-center px-4 bg-background/40",
-                            PPNMedium.className,
-                            "text-sm text-neutral-500"
-                          )}
-                        >
+                        <span className={cn("border border-border mr-2 rounded-full h-6 flex items-center justify-center px-4 bg-background/40", PPNMedium.className, "text-sm text-neutral-500")}>
                           +{tags.length - 3}
                         </span>
                       </TooltipTrigger>
@@ -89,14 +68,7 @@ const ProjectCard = ({ idx, tags, name, image, year, github, live }: ProjectCard
                 </>
               ) : (
                 tags.map((tag, idx) => (
-                  <span
-                    className={cn(
-                      "border border-border mr-2 rounded-full h-6 flex items-center justify-center px-4 bg-background/40",
-                      PPNMedium.className,
-                      "text-sm text-neutral-500"
-                    )}
-                    key={idx}
-                  >
+                  <span className={cn("border border-border mr-2 rounded-full h-6 flex items-center justify-center px-4 bg-background/40", PPNMedium.className, "text-sm text-neutral-500")} key={idx}>
                     {tag}
                   </span>
                 ))
@@ -128,28 +100,13 @@ const ProjectCard = ({ idx, tags, name, image, year, github, live }: ProjectCard
           />
         </div>
         <div className="mt-4 md:mt-0 flex items-center md:flex-col gap-2">
-          <h1
-            className={cn(
-              "flex gap-x-2 items-center text-base text-neutral-600",
-              PPNMedium.className
-            )}
-          >
-            {year}
-          </h1>
-          <Link
-            className="transition-all ease-in md:opacity-0 group-hover/card:opacity-100"
-            href={github}
-            target="_blank"
-          >
+          <h1 className={cn("flex gap-x-2 items-center text-base text-neutral-600", PPNMedium.className)}>{year}</h1>
+          <Link className="transition-all ease-in md:opacity-0 group-hover/card:opacity-100" href={github} target="_blank">
             <Button variant="link" className="px-0 py-0 text-neutral-500 hover:text-primary">
               github
             </Button>
           </Link>
-          <Link
-            className="transition-all ease-in md:opacity-0 group-hover/card:opacity-100"
-            href={live}
-            target="_blank"
-          >
+          <Link className="transition-all ease-in md:opacity-0 group-hover/card:opacity-100" href={live} target="_blank">
             <Button variant="link" className="px-0 py-0 text-neutral-500 hover:text-primary">
               live
             </Button>

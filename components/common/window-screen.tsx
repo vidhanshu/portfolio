@@ -16,23 +16,9 @@ interface WindowScreenProps extends React.HTMLAttributes<HTMLDivElement> {
 
 ///-------------------------------------------------------------------------------------------
 
-const WindowScreen = ({
-  title,
-  children,
-  className,
-  containerProps: { className: containerClassName, ...rest } = {},
-  shootingStar = false,
-  ...props
-}: WindowScreenProps & PropsWithChildren) => {
+const WindowScreen = ({ title, children, className, containerProps: { className: containerClassName, ...rest } = {}, shootingStar = false, ...props }: WindowScreenProps & PropsWithChildren) => {
   return (
-    <div
-      className={cn(
-        "w-fit bg-background/50 h-fit backdrop-blur-sm rounded-sm z-20 relative",
-        PPNMedium.className,
-        containerClassName
-      )}
-      {...rest}
-    >
+    <div className={cn("w-fit bg-background/50 h-fit backdrop-blur-sm rounded-sm z-20 relative", PPNMedium.className, containerClassName)} {...rest}>
       {shootingStar && (
         <>
           {/* shooting star before */}

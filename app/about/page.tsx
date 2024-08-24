@@ -18,9 +18,9 @@ const About = () => {
         }
         subheading="Let me introduce myself, my workflows, my collaborations, and the technologies I like to use to bring my projects to life."
       />
-      <AboutMe/>
-      <TechStack/>
-      <GetInTouch/>
+      <AboutMe />
+      <TechStack />
+      <GetInTouch />
     </PageLayout>
   );
 };

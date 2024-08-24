@@ -12,8 +12,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        primary:
-          "px-5 py-2.5 relative rounded group overflow-hidden border-primary/50 md:border-border font-medium bg-transparent md:bg-background border text-white inline-block",
+        primary: "px-5 py-2.5 relative rounded group overflow-hidden border-primary/50 md:border-border font-medium bg-transparent md:bg-background border text-white inline-block",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
@@ -32,47 +31,29 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   showArrow?: boolean;
   icon?: LucideIcon;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { className, children, variant, size, asChild = false, showArrow = true, icon, ...props },
-    ref
-  ) => {
-    const Comp = asChild ? Slot : "button";
-    const Icon = icon || ArrowRight;
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }), "group/button")}
-        ref={ref}
-        {...props}
-      >
-        <div
-          className={cn(
-            variant === "primary"
-              ? "relative group-hover:text-primary flex gap-x-2 items-center" + PPNMedium.className
-              : "flex gap-x-2 items-center"
-          )}
-        >
-          {children}{" "}
-          {showArrow && <Icon className="size-4 mt-[1px] group-hover:translate-x-1" />}
-        </div>
-        {variant === "primary" && (
-          <span className="absolute top-0 left-0 flex w-0 h-full mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-primary/10 group-hover:w-full opacity-90"></span>
-        )}
-      </Comp>
-    );
-  }
-);
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, children, variant, size, asChild = false, showArrow = true, icon, ...props }, ref) => {
+  const Comp = asChild ? Slot : "button";
+  const Icon = icon || ArrowRight;
+  return (
+    <Comp className={cn(buttonVariants({ variant, size, className }), "group/button")} ref={ref} {...props}>
+      <div className={cn(variant === "primary" ? "relative group-hover:text-primary flex gap-x-2 items-center" + PPNMedium.className : "flex gap-x-2 items-center")}>
+        {children} {showArrow && <Icon className="size-4 mt-[1px] group-hover:translate-x-1" />}
+      </div>
+      {variant === "primary" && (
+        <span className="absolute top-0 left-0 flex w-0 h-full mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-primary/10 group-hover:w-full opacity-90"></span>
+      )}
+    </Comp>
+  );
+});
 Button.displayName = "Button";
 
 export { Button, buttonVariants };

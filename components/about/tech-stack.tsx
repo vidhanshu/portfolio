@@ -29,14 +29,7 @@ const TechStack = () => {
         <WindowScreen shootingStar containerProps={{ className: "w-full my-32" }} title="techs">
           <div className="grid justify-center md:justify-normal md:grid-cols-4 gap-10 py-8 px-8">
             {TECHSTACK.map(({ image, name }, idx) => (
-              <Image
-                key={idx}
-                alt={name}
-                src={image}
-                width={220}
-                height={56}
-                className="h-[30px] w-[150px] opacity-50"
-              />
+              <Image key={idx} alt={name} src={image} width={220} height={56} className="h-[30px] w-[150px] opacity-50" />
             ))}
           </div>
         </WindowScreen>

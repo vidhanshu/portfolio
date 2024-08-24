@@ -30,27 +30,14 @@ const GetInTouch = () => {
           visible: fmAnimations.visible,
         }}
       >
-        <WindowScreen
-          containerProps={{ className: "w-full bg-background/40" }}
-          title="Collaboration"
-        >
+        <WindowScreen containerProps={{ className: "w-full bg-background/40" }} title="Collaboration">
           <div className="px-4 md:px-8 py-10 flex md:flex-row flex-col gap-x-8 items-center md:items-start">
             <div className="relative">
-              <Image
-                alt="profile-pic"
-                src="/profile.jpg"
-                width={160}
-                height={160}
-                className="aspect-square max-w-[160] rounded-full"
-              />
-              <button className="size-8 absolute bottom-0 right-0 bg-background rounded-full border">
-                👋
-              </button>
+              <Image alt="profile-pic" src="/profile.jpg" width={160} height={160} className="aspect-square max-w-[160] rounded-full" />
+              <button className="size-8 absolute bottom-0 right-0 bg-background rounded-full border">👋</button>
             </div>
             <div className="flex flex-col items-center md:block">
-              <h1 className={cn("mt-6 md:mt-0 text-center md:text-left text-3xl md:text-5xl mb-6", PPObjectSansRegular.className)}>
-                Let&apos;s work together on your next project
-              </h1>
+              <h1 className={cn("mt-6 md:mt-0 text-center md:text-left text-3xl md:text-5xl mb-6", PPObjectSansRegular.className)}>Let&apos;s work together on your next project</h1>
               <Link href="/contact">
                 <Button size="primary" variant="primary">
                   let&apos;s-get-in-touch

@@ -28,12 +28,4 @@ const NMachineUltraBold = localFont({
   src: "../public/fonts/NeueMachina-Ultrabold.otf",
 });
 
-export {
-  NMachineLight,
-  NMachineRegular,
-  NMachineUltraBold,
-  PPNMedium,
-  PPNRegular,
-  PPNUltraBold,
-  PPObjectSansRegular,
-};
+export { NMachineLight, NMachineRegular, NMachineUltraBold, PPNMedium, PPNRegular, PPNUltraBold, PPObjectSansRegular };

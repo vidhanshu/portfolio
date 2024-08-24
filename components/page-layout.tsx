@@ -17,7 +17,7 @@ const PageLayout = ({ children }: PropsWithChildren) => {
       gsap.to(".gsap-left-radial", { top: "30%", left: 0, duration: 1, ease: "sine" });
       gsap.to(".gsap-right-radial", { top: 0, right: 0, duration: 1, ease: "sine" });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (

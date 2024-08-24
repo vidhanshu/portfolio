@@ -5,35 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { ACHIEVEMENTS, fmAnimations } from "@/lib/constants";
 import { PPNMedium } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import TagsRenderer from "./tags-renderer";
 
-const AnimatedAccordion = ({
-  achievements,
-  shootingStar = false,
-}: {
-  achievements: typeof ACHIEVEMENTS;
-  shootingStar?: boolean;
-}) => {
+const AnimatedAccordion = ({ achievements, shootingStar = false }: { achievements: typeof ACHIEVEMENTS; shootingStar?: boolean }) => {
   const [value, setValue] = useState("");
 
   return (
-    <Accordion
-      type="single"
-      collapsible
-      className={cn("w-full relative space-y-8", shootingStar && "my-32")}
-      value={value}
-      onValueChange={(val) => setValue(val)}
-    >
+    <Accordion type="single" collapsible className={cn("w-full relative space-y-8", shootingStar && "my-32")} value={value} onValueChange={(val) => setValue(val)}>
       {shootingStar && (
         <>
           {/* shooting star before */}
@@ -58,12 +41,7 @@ const AnimatedAccordion = ({
             <>
               <div className="flex md:flex-row flex-col py-4 md:py-16 relative justify-between items-center gap-4">
                 <div className="flex gap-x-4 items-start w-full max-w-[425px]">
-                  <p
-                    className={cn(
-                      PPNMedium.className,
-                      "w-12 md:w-8 md:ease-out md:duration-300 md:transition-all text-base text-neutral-600 md:group-hover/card:w-0 overflow-hidden"
-                    )}
-                  >
+                  <p className={cn(PPNMedium.className, "w-12 md:w-8 md:ease-out md:duration-300 md:transition-all text-base text-neutral-600 md:group-hover/card:w-0 overflow-hidden")}>
                     {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
                   </p>
                   <div className="space-y-6">
@@ -78,40 +56,24 @@ const AnimatedAccordion = ({
               </div>
               <AccordionContent className="border-t py-4 md:py-8">
                 <div className="flex flex-col md:flex-row gap-x-6">
-                  <Image
-                    src={image}
-                    width={471}
-                    height={266}
-                    className="aspect-square h-40 md:aspect-video object-cover rounded-sm"
-                    alt={title}
-                  />
+                  <Image src={image} width={471} height={266} className="aspect-square h-40 md:aspect-video object-cover rounded-sm" alt={title} />
                   <div className={cn("flex flex-col justify-between gap-6", PPNMedium.className)}>
                     <p className="text-xs text-neutral-500">{date}</p>
                     <p className="text-base">{description}</p>
                     <div className="flex gap-2 items-center flex-wrap">
-                      <TagsRenderer
-                        tags={tags}
-                        maxCount={tags.length}
-                        className="text-xs py-1 px-3"
-                      />
+                      <TagsRenderer tags={tags} maxCount={tags.length} className="text-xs py-1 px-3" />
                     </div>
                     <div className="flex gap-x-8 items-center">
                       {certificate && (
                         <Link target="_blank" href={certificate}>
-                          <Button
-                            variant="link"
-                            className="px-0 hover:underline hover:text-primary"
-                          >
+                          <Button variant="link" className="px-0 hover:underline hover:text-primary">
                             Certificate
                           </Button>
                         </Link>
                       )}
                       {news && (
                         <Link href={news} target="_blank">
-                          <Button
-                            variant="link"
-                            className="px-0 hover:underline hover:text-primary"
-                          >
+                          <Button variant="link" className="px-0 hover:underline hover:text-primary">
                             News
                           </Button>
                         </Link>

@@ -5,12 +5,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import React, { PropsWithChildren } from "react";
 
-const Section = ({
-  sectionTitle,
-  children,
-  className,
-  ...props
-}: { sectionTitle?: PropsWithChildren["children"] } & React.HTMLAttributes<HTMLDivElement>) => {
+const Section = ({ sectionTitle, children, className, ...props }: { sectionTitle?: PropsWithChildren["children"] } & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <section className={cn("py-16 px-4", className)} {...props}>
       <motion.h1

@@ -21,12 +21,7 @@ interface HeroSectionProps {
 
 ///------------------------------------------------------------------------
 
-const HeroSection = ({
-  heading,
-  pageTitle,
-  subheading = "I bring value to web development projects by merging technical expertise with creativity and aesthetics.",
-  extra,
-}: HeroSectionProps) => {
+const HeroSection = ({ heading, pageTitle, subheading = "I bring value to web development projects by merging technical expertise with creativity and aesthetics.", extra }: HeroSectionProps) => {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -39,7 +34,7 @@ const HeroSection = ({
         ease: "sine.in",
       });
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
@@ -47,12 +42,7 @@ const HeroSection = ({
       <div className="gsap-hero-container scale-50 opacity-0">
         <div className="relative h-[calc(100vh-99px)] w-full flex justify-center items-center overflow-hidden">
           {/* background huge infinite scrolling text */}
-          <div
-            className={cn(
-              "absolute h-fit inset-0 my-auto flex overflow-x-hidden w-full",
-              PPNUltraBold.className
-            )}
-          >
+          <div className={cn("absolute h-fit inset-0 my-auto flex overflow-x-hidden w-full", PPNUltraBold.className)}>
             <div className="animate-marquee whitespace-nowrap">
               {LETTERS.map((l, idx) => (
                 <span key={idx} className="select-none text-[500px] text-[#131e14]/30 mx-4">
@@ -72,28 +62,10 @@ const HeroSection = ({
 
           {/* main content */}
           <div className="flex flex-col gap-6 items-center justify-center z-10">
-            <p
-              className={cn(
-                NMachineRegular.className,
-                "gsap-title-text scale-90 text-base text-neutral-500 uppercase"
-              )}
-            >
-              {pageTitle}
-            </p>
-            <h1
-              className={cn("gsap-title-text scale-90 text-5xl md:text-8xl text-center", PPNMedium.className)}
-            >
-              {heading}
-            </h1>
+            <p className={cn(NMachineRegular.className, "gsap-title-text scale-90 text-base text-neutral-500 uppercase")}>{pageTitle}</p>
+            <h1 className={cn("gsap-title-text scale-90 text-5xl md:text-8xl text-center", PPNMedium.className)}>{heading}</h1>
             {extra}
-            <p
-              className={cn(
-                NMachineRegular.className,
-                "gsap-title-text scale-90 text-base text-neutral-500 max-w-xl text-center"
-              )}
-            >
-              {subheading}
-            </p>
+            <p className={cn(NMachineRegular.className, "gsap-title-text scale-90 text-base text-neutral-500 max-w-xl text-center")}>{subheading}</p>
           </div>
           <div className="scroll-line" />
         </div>

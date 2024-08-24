@@ -34,16 +34,14 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
     () => {
       gsap.to(".gsap-container", { scale: 1, duration: 0.2, ease: "circ" });
     },
-    { scope: container }
+    { scope: container },
   );
 
   // set the primary color based on the route
   useLayoutEffect(() => {
     const color = NAV_ITEMS.find((item) => item.link === pathname)?.color;
     if (color) {
-      document.documentElement
-        .getElementsByClassName("dark")[0]
-        .setAttribute("style", `--primary: ${color}`);
+      document.documentElement.getElementsByClassName("dark")[0].setAttribute("style", `--primary: ${color}`);
     }
   }, [pathname]);
 
@@ -84,10 +82,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
                 <Minus className="text-neutral-500 stroke-1 size-4 hover:text-white hover:stroke-2" />
               </button>
               <button>
-                <Square
-                  onClick={() => toggleFullScreen()}
-                  className="text-neutral-500 stroke-1 size-3 hover:text-white hover:stroke-2"
-                />
+                <Square onClick={() => toggleFullScreen()} className="text-neutral-500 stroke-1 size-3 hover:text-white hover:stroke-2" />
               </button>
               <button>
                 <X className="text-neutral-700 stroke-2 size-4 hover:text-white hover:stroke-2" />
@@ -95,7 +90,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
             </div>
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
-                <button>
+                <button className="md:hidden">
                   <Menu className="text-white size-6" />
                 </button>
               </SheetTrigger>
@@ -113,13 +108,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
                           showRouteChangeAnimationForHeroSection(link);
                         }}
                       >
-                        <Icon
-                          className={cn(
-                            "text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2",
-                            { "text-primary stroke-2": active }
-                          )}
-                        />{" "}
-                        {title}
+                        <Icon className={cn("text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2", { "text-primary stroke-2": active })} /> {title}
                       </button>
                     );
                   })}
@@ -142,12 +131,7 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
                           showRouteChangeAnimationForHeroSection(link);
                         }}
                       >
-                        <Icon
-                          className={cn(
-                            "text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2",
-                            { "text-primary stroke-2": active }
-                          )}
-                        />
+                        <Icon className={cn("text-neutral-500 stroke-1 size-4 hover:text-primary hover:stroke-2", { "text-primary stroke-2": active })} />
                       </button>
                     </TooltipTrigger>
                     <TooltipContent align="center" sideOffset={10} side="right">
@@ -225,10 +209,7 @@ const LoadingUI = () => {
 
       <div className="flex max-w-3xl border rounded-l-sm rounded-r-sm bg-black/80">
         <div className="size-10 border-r border-border flex items-center justify-center">
-          <Logo
-            className="size-6 group cursor-pointer"
-            pathProps={{ className: "stroke-white group-hover:stroke-primary" }}
-          />
+          <Logo className="size-6 group cursor-pointer" pathProps={{ className: "stroke-white group-hover:stroke-primary" }} />
         </div>
         <div className="flex items-center justify-center px-4 md:px-16">
           <h1 className={cn("flex gap-x-2 items-center", NMachineRegular.className)}>
