@@ -45,9 +45,15 @@ const ContactForm = () => {
 
   return (
     <Section>
-      <WindowScreen containerProps={{ className: "mx-auto w-full max-w-[600px]" }} title="write-me">
+      <WindowScreen containerProps={{ className: "mx-auto mb-14 w-full max-w-[600px] relative" }} title="write-me">
+        <>
+          {/* ं shooting star before */}
+          <div className="w-[1px] inset-x-0 mx-auto -top-32 h-32 bg-gradient-to-t from-primary/70 to-primary/5 absolute" />
+          {/* ं shooting star after */}
+          <div className="w-[1px] inset-x-0 mx-auto -bottom-32 h-32 bg-gradient-to-b from-primary/70 to-primary/5 absolute" />
+        </>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="p-4 space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="pb-4 md:p-4 space-y-6">
             <FormField
               control={form.control}
               name="fullName"
