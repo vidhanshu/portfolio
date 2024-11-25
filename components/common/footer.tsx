@@ -21,7 +21,7 @@ const Footer = () => {
               <p className="text-primary">&lt;borade&gt;</p>
             </h1>
           </div>
-          <div className="flex flex-col gap-4 items-center">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
             {NAV_ITEMS.slice(1, NAV_ITEMS.length).map(({ title, link }, idx) => (
               <Link className={cn(PPNMedium.className, "text-neutral-500 lowercase text-sm")} href={link} key={idx}>
                 {title}

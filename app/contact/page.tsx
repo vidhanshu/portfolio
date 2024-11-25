@@ -2,6 +2,7 @@ import React from "react";
 
 import HeroSection from "@/components/common/hero";
 import PageLayout from "@/components/page-layout";
+import ContactForm from "@/components/contact/contact-form";
 
 const Contact = () => {
   return (
@@ -17,6 +18,7 @@ const Contact = () => {
         }
         subheading="Whether you have a project you want to work on together or just want to have a chat, you are in the right place: let's get in touch."
       />
+      <ContactForm/>
     </PageLayout>
   );
 };

@@ -94,12 +94,19 @@ export const PROJECTS = [
   },
 ];
 
+export const LEETCODE_URL = 'https://leetcode.com/vidhanshu/'
+export const GITHUB_URL = 'https://github.com/vidhanshu'
+export const EMAIL_URL = 'mailto:vidhanshu7218@gmail.com'
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/vidhanshu'
+export const INSTAGRAM_URL = 'https://www.instagram.com/vidhanshu_borade'
+export const FACEBOOK_URL = 'https://www.facebook.com/vidhanshu.borade.18/'
+
 export const SOCIALS = [
-  { icon: Linkedin, label: "Linkedin", href: "/" },
-  { icon: Instagram, label: "Instagram", href: "/" },
-  { icon: Facebook, label: "Facebook", href: "/" },
-  { icon: Twitter, label: "Twitter", href: "/" },
-  { icon: Github, label: "Github", href: "/" },
+  { icon: Linkedin, label: "Linkedin", href: LINKEDIN_URL },
+  { icon: Instagram, label: "Instagram", href: INSTAGRAM_URL },
+  { icon: Facebook, label: "Facebook", href: FACEBOOK_URL},
+  // { icon: Twitter, label: "Leetcode", href: LEETCODE_URL },
+  { icon: Github, label: "Github", href:GITHUB_URL},
 ];
 
 export const HOBBIES = [
@@ -126,7 +133,7 @@ export const ACHIEVEMENTS = [
     title: "SIH'22 Winner",
     date: "Aug 22, 2022",
     description:
-      "My team named Serious wale Coders won the prize worth 1 lakh @Smart India Hackathon in August'22. Our problem statement was, Improve the attractiveness & user-friendliness of the AICTE website.",
+      'My team named "Serious wale Coders" won the prize worth 1 lakh @Smart India Hackathon in August\'22. Our problem statement was, Improve the attractiveness & user-friendliness of the AICTE website.',
     certificate: "https://drive.google.com/file/d/1nmezls7VzJPCa3iT_zVzSdcpgKVd-ZQi/view?usp=sharing",
     tags: ["react", "Firebase", "Scss", "framer-motion"],
     news: "https://www.aninews.in/news/business/business/grand-finale-of-smart-india-hackathon-2022-inaugurated-at-chandigarh-university-gharuan20220826101515/",
@@ -134,9 +141,9 @@ export const ACHIEVEMENTS = [
   {
     image: "/achievements/appathon.webp",
     title: "Appathon'23 Winner",
-    date: "Feb 22, 2023",
+    date: "Feb 23, 2023",
     description:
-      "My team named “ExpertEra” won the prize worth 12k @Appathon'22 in Feb'23. Our problem statement was, “Create a portal for students, where students can select the skills and the resources & mentors should be listed for that particular skill”. It was 24 hr hackathon conducted at St. vincent palloti college of engineering.",
+      "My team named “ExpertEra” won the prize worth 12k @Appathon'23 in Feb'23. Our problem statement was, “Create a portal for students, where students can select the skills and the resources & mentors should be listed for that particular skill”. It was 24 hr hackathon conducted at St. vincent palloti college of engineering.",
     certificate: "https://drive.google.com/file/d/1aWJ8B4f4W2hnTkBhvLNbQghyncZgci7N/view",
     tags: ["react-native", "my-sql", "android-studio"],
   },

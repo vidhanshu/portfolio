@@ -3,6 +3,7 @@ import { PPObjectSansRegular } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: {
@@ -24,7 +25,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("dark", PPObjectSansRegular.className)}>
-        <CommonLayout>{children}</CommonLayout>
+        <CommonLayout>
+          {children}
+          <Toaster
+            toastOptions={{
+              duration: 3000,
+              classNames: {
+                error: "bg-rose-500",
+                success: "bg-green-500",
+                warning: "bg-yellow-500",
+                info: "bg-blue-500",
+              },
+            }}
+          />
+        </CommonLayout>
       </body>
     </html>
   );
