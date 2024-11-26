@@ -1,12 +1,12 @@
 import { Facebook, Github, Home, Instagram, Linkedin, Mail, Target, Trophy, Twitter, UserRound, Zap } from "lucide-react";
-import nextjs from "@/public/teck-stack/next.svg";
-import node from "@/public/teck-stack/node.svg";
-import react from "@/public/teck-stack/react.svg";
-import tailwind from "@/public/teck-stack/tailwind.svg";
-import gql from "@/public/teck-stack/gql.svg";
-import ts from "@/public/teck-stack/ts.svg";
-import aws from "@/public/teck-stack/aws.svg";
-import docker from "@/public/teck-stack/docker.svg";
+import nextjs from "@/public/tech-stack/next.svg";
+import node from "@/public/tech-stack/node.svg";
+import react from "@/public/tech-stack/react.svg";
+import tailwind from "@/public/tech-stack/tailwind.svg";
+import gql from "@/public/tech-stack/gql.svg";
+import ts from "@/public/tech-stack/ts.svg";
+import aws from "@/public/tech-stack/aws.svg";
+import docker from "@/public/tech-stack/docker.svg";
 
 export const NAV_ITEMS = [
   {
@@ -94,19 +94,19 @@ export const PROJECTS = [
   },
 ];
 
-export const LEETCODE_URL = 'https://leetcode.com/vidhanshu/'
-export const GITHUB_URL = 'https://github.com/vidhanshu'
-export const EMAIL_URL = 'mailto:vidhanshu7218@gmail.com'
-export const LINKEDIN_URL = 'https://www.linkedin.com/in/vidhanshu'
-export const INSTAGRAM_URL = 'https://www.instagram.com/vidhanshu_borade'
-export const FACEBOOK_URL = 'https://www.facebook.com/vidhanshu.borade.18/'
+export const LEETCODE_URL = "https://leetcode.com/vidhanshu/";
+export const GITHUB_URL = "https://github.com/vidhanshu";
+export const EMAIL_URL = "mailto:vidhanshu7218@gmail.com";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/vidhanshu";
+export const INSTAGRAM_URL = "https://www.instagram.com/vidhanshu_borade";
+export const FACEBOOK_URL = "https://www.facebook.com/vidhanshu.borade.18/";
 
 export const SOCIALS = [
   { icon: Linkedin, label: "Linkedin", href: LINKEDIN_URL },
   { icon: Instagram, label: "Instagram", href: INSTAGRAM_URL },
-  { icon: Facebook, label: "Facebook", href: FACEBOOK_URL},
+  { icon: Facebook, label: "Facebook", href: FACEBOOK_URL },
   // { icon: Twitter, label: "Leetcode", href: LEETCODE_URL },
-  { icon: Github, label: "Github", href:GITHUB_URL},
+  { icon: Github, label: "Github", href: GITHUB_URL },
 ];
 
 export const HOBBIES = [
@@ -164,3 +164,68 @@ export const fmAnimations = {
   scaleDown: { scale: 0.8, opacity: 0.3 },
   scaleUp: { scale: 1, opacity: 1 },
 };
+
+export const EXPERIENCE = [
+  {
+    id: "1",
+    title: "Executive memeber",
+    company: "GDSC GHRCE",
+    description: "I joined GDSC GHRCE (Google developer students clubs) as an executive team member. Where my role was to help the core team to conduct the events and promote the google technologies",
+    from: "Aug 20",
+    to: "May 22",
+    link: "https://gdsc-ghrce.vercel.app",
+    logo: "/experience/gdsc_logo.png",
+    certificate: "https://drive.google.com/file/d/1n0DXYnBI-ivjV65i9O8zbVvE4s5_Cngx/view?usp=sharing",
+  },
+  {
+    id: "2",
+    title: "Core team member",
+    company: "GDSC GHRCE",
+    description: "I promoted to core team as a Technical team member where my task is to help lead in organizing the events and guiding the community.",
+    from: "May 22",
+    to: "current",
+    link: "https://gdsc-ghrce.vercel.app",
+    logo: "/experience/gdsc_logo.png",
+  },
+  {
+    id: "3",
+    title: "Web developer intern",
+    company: "PlayerOrbit",
+    description: "I worked as a web developer @PlayerOrbit my job was to create API end points for the website, creating front end for the website and testing the website.",
+    from: "june 22",
+    to: "Sept 22",
+    link: "https://playerorbit.com",
+    logo: "/experience/po.webp",
+    certificate: "https://drive.google.com/file/d/1_F5Siv2jw9E7nUloZ9xHvAYFwitCUGlI/view?usp=sharing",
+  },
+  {
+    id: "4",
+    title: "Front end intern",
+    company: "AI Planet",
+    description: "I worked as a full-time frontend intern @ AiPlanet, where my job is develop the frontend of the website.",
+    from: "june 23",
+    to: "dec 23",
+    link: "https://aiplanet.com",
+    logo: "/experience/dphi.png",
+  },
+  {
+    id: "5",
+    title: "Wed Development Intern",
+    company: "Lief",
+    description: "I'm worked as a Wed Development Intern @ Lief, where my job is build and maintain the product end-to-end",
+    from: "jan 24",
+    to: "June 24",
+    link: "https://home.lief.care",
+    logo: "/experience/lief.avif",
+  },
+  {
+    id: "6",
+    title: "Software Engineer",
+    company: "Lief",
+    description: "I'm working as a Software Engineer @ Lief, where my job is build and maintain the product end-to-end",
+    from: "July 24",
+    to: "current",
+    link: "https://home.lief.care",
+    logo: "/experience/lief.avif",
+  },
+].reverse();
