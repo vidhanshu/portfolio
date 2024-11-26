@@ -34,12 +34,12 @@ const CommonLayout = ({ children }: React.PropsWithChildren) => {
     () => {
       gsap.to(".gsap-container", { scale: 1, duration: 0.2, ease: "circ" });
     },
-    { scope: container },
+    { scope: container }
   );
 
   // set the primary color based on the route
   useLayoutEffect(() => {
-    const color = NAV_ITEMS.find((item) => item.link === pathname)?.color;
+    const color = NAV_ITEMS.find((item) => item.link.startsWith(pathname))?.color;
     if (color) {
       document.documentElement.getElementsByClassName("dark")[0].setAttribute("style", `--primary: ${color}`);
     }

@@ -2,6 +2,12 @@ import HeroSection from "@/components/common/hero";
 import GetInTouch from "@/components/landing/get-in-touch";
 import PageLayout from "@/components/page-layout";
 import Achievements from "@/components/achievements/achievement";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Achievements",
+  description: "Achievements of Vidhanshu Borade",
+};
 
 const Achievement = () => {
   return (

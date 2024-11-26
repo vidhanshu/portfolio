@@ -1,7 +1,5 @@
-"use client";
-
 import PageLayout from "@/components/page-layout";
-import { fmAnimations, PROJECTS } from "@/lib/constants";
+import { PROJECTS } from "@/lib/constants";
 import { NMachineRegular, PPNMedium } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -13,6 +11,28 @@ import Link from "next/link";
 import Section from "@/components/section";
 import ProjectCard from "@/components/landing/project-card";
 import GetInTouch from "@/components/landing/get-in-touch";
+import { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata(params: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const slug = (await params.params).slug;
+  const idx = PROJECTS.findIndex((proj) => proj.slug === slug);
+  const data = PROJECTS[idx];
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: data?.name,
+    description: data?.description,
+    openGraph: {
+      images: [data?.image, ...previousImages],
+    },
+    keywords: data?.tags,
+  };
+}
 
 const Project = ({ params: { slug } }: { params: { slug: string } }) => {
   const idx = PROJECTS.findIndex((proj) => proj.slug === slug);

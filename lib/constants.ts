@@ -1,4 +1,4 @@
-import { Facebook, Github, Home, Instagram, Linkedin, Mail, Target, Trophy, Twitter, UserRound, Zap } from "lucide-react";
+import { Album, Facebook, Github, Home, Instagram, Linkedin, Mail, Target, Trophy, Twitter, UserRound, Zap } from "lucide-react";
 import nextjs from "@/public/tech-stack/next.svg";
 import node from "@/public/tech-stack/node.svg";
 import react from "@/public/tech-stack/react.svg";
@@ -44,6 +44,12 @@ export const NAV_ITEMS = [
     icon: Mail,
     title: "Contact",
     color: "203 90% 77%",
+  },
+  {
+    link: "/blogs",
+    icon: Album,
+    title: "Blogs",
+    color: "16 88% 54%",
   },
 ];
 
@@ -229,3 +235,10 @@ export const EXPERIENCE = [
     logo: "/experience/lief.avif",
   },
 ].reverse();
+
+export const BLOGS = [
+  {
+    id: '1',
+    title: ''
+  }
+]

@@ -3,7 +3,13 @@ import HeroSection from "@/components/common/hero";
 import AboutMe from "@/components/landing/about-me";
 import GetInTouch from "@/components/landing/get-in-touch";
 import PageLayout from "@/components/page-layout";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About page of Vidhanshu Borade",
+};
 
 const About = () => {
   return (
