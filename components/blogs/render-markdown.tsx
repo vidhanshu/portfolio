@@ -16,7 +16,9 @@ const RenderMarkdown = ({ markdown }: { markdown?: string }) => {
           const match = /language-(\w+)/.exec(className || "");
           return !inline && match ? (
             // @ts-ignore
-            <SyntaxHighlighter {...rest} PreTag="div" children={String(children).replace(/\n$/, "")} language={match[1]} style={pojoaque} />
+            <SyntaxHighlighter {...rest} PreTag="div" style={pojoaque}>
+              {String(children).replace(/\n$/, "")} language={match[1]}{" "}
+            </SyntaxHighlighter>
           ) : (
             <code {...rest} className={cn(className, "bg-primary/30 text-white px-1 py-[1px] text-sm rounded-sm")}>
               {children}
