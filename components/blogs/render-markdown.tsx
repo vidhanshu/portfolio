@@ -48,7 +48,7 @@ const RenderMarkdown = ({ markdown }: { markdown?: string }) => {
           );
         },
         strong({ children }) {
-          return <strong className={cn(PPNUltraBold.className, "block")}>{children}</strong>;
+          return <strong className={cn(PPNUltraBold.className)}>{children}</strong>;
         },
       }}
     >
