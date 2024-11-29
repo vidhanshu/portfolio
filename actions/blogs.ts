@@ -21,7 +21,7 @@ export const getBlogs = async () => {
   }
 };
 
-export const getBlogIds = async () => {
+export const getBlogIds = async (): Promise<{ data?: { _id: string }[]; error?: boolean; message?: string }> => {
   try {
     await dbConnect();
     const ids = await Blog.find().select({

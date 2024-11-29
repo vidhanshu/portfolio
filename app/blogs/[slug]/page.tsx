@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
+import dyn from "next/dynamic";
 import { getBlogById, getBlogIds } from "@/actions/blogs";
 
-const BlogCard = dynamic(() => import("@/components/blogs/blog-card"), { ssr: false });
+const BlogCard = dyn(() => import("@/components/blogs/blog-card"), { ssr: false });
 
 import RenderMarkdown from "@/components/blogs/render-markdown";
 import HeroSection from "@/components/common/hero";
@@ -98,3 +98,12 @@ const BlogPage = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default BlogPage;
+
+export const dynamic = "force-static";
+
+export async function generateStaticParams() {
+  const { data } = await getBlogIds();
+  if (!data) return [];
+
+  return data.map(({ _id }) => ({ slug: _id.toString() })).filter((obj) => !!obj.slug) as { slug: string }[];
+}
