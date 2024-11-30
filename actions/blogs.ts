@@ -1,20 +1,21 @@
 "use server";
 
 import dbConnect from "@/configs/db";
-import Blog from "@/models/blog";
+import Blog, { IBlog } from "@/models/blog";
 
-export const getBlogs = async () => {
+export const getBlogs = async ({ select }: { select?: any } | undefined = {}) => {
+  select = select || {
+    _id: 1,
+    title: 1,
+    description: 1,
+    image: 1,
+    createdAt: 1,
+    time_to_read: 1,
+    tags: 1,
+  };
   try {
     await dbConnect();
-    const blogs = await Blog.find().select({
-      _id: 1,
-      title: 1,
-      description: 1,
-      image: 1,
-      createdAt: 1,
-      time_to_read: 1,
-      tags: 1,
-    });
+    const blogs = await Blog.find().select(select);
     return { data: blogs };
   } catch (error) {
     return { error: true, message: `Fetch error: ${error}` };

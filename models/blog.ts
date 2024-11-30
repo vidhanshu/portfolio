@@ -1,6 +1,19 @@
 import { Schema, model, models } from "mongoose";
 
-const BlogSchema = new Schema(
+export interface IBlog {
+  _id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  link: string;
+  tags: string[];
+  time_to_read: number;
+  markdown: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+export const BlogSchema = new Schema<IBlog>(
   {
     title: {
       type: String,

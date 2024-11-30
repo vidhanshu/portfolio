@@ -4,6 +4,12 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import type { Viewport } from "next";
+import { Analytics } from "@vercel/analytics/react";
+
+export const viewport: Viewport = {
+  themeColor: "var(--primary)",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -15,6 +21,36 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  openGraph: {
+    title: "Vidhanshu Borade",
+    type: "website",
+    images: ["https://i.postimg.cc/TYrMDwx5/profile.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vidhanshu Borade",
+    images: ["https://i.postimg.cc/TYrMDwx5/profile.jpg"],
+  },
+  authors: [{ name: "Vidhanshu Borade" }],
+  keywords: [
+    "Vidhanshu Borade",
+    "Vidhanshu",
+    "portfolio",
+    "borade",
+    "Full-Stack Web Developer",
+    "Android Developer",
+    "Programming",
+    "Software Design",
+    "Qualifications",
+    "Courses",
+    "Achievements",
+    "Experience",
+    "Freelancer",
+    "Student",
+    "Competitive Programmer",
+    "Competitive",
+    "Programming",
+  ],
 };
 
 export default function RootLayout({
@@ -39,6 +75,7 @@ export default function RootLayout({
             }}
           />
         </CommonLayout>
+        <Analytics />
       </body>
     </html>
   );
