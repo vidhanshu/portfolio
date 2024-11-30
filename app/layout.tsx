@@ -6,6 +6,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import type { Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const viewport: Viewport = {
   themeColor: "var(--primary)",
@@ -76,6 +77,7 @@ export default function RootLayout({
           />
         </CommonLayout>
         <Analytics />
+        <GoogleTagManager gtmId="GTM-TXM9QDKN" />
       </body>
     </html>
   );
